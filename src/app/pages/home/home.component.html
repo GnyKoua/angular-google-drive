@@ -1,0 +1,41 @@
+<div class="container mt-5 d-flex justify-content-end align-items-center">
+  <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#newFolder">
+    Nouveau dossier
+    <i class="fa fa-plus text-primary" aria-hidden="true"></i>
+  </button>
+</div>
+
+<div class="container mt-2">
+  <ul class="list-group">
+    <li class="list-group-item xxlarge" *ngFor="let folder of ListeDossiers">
+      <i class="fa fa-folder text-secondary"></i>
+      <a routerLink="/folder/{{ folder.id }}" class="mx-2">{{ folder.name }}</a>
+    </li>
+  </ul>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="newFolder" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Nouveau dossier</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form #form="ngForm">
+          <div class="form-group">
+            <label for="">Nom du dossier</label>
+            <input type="text" class="form-control" ngModel name="foldername" id="" aria-describedby="helpId"
+              placeholder="Saisir le nom..." required>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary close" data-bs-dismiss="modal">Annuler</button>
+        <button type="button" class="btn btn-success" [disabled]="form.invalid" (click)="onCreateFolder(form)">Valider</button>
+      </div>
+    </div>
+  </div>
+</div>
