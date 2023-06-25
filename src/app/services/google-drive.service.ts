@@ -3,9 +3,9 @@ import { Injectable } from '@angular/core';
 import { TsGoogleDrive } from 'ts-google-drive';
 import { File } from 'ts-google-drive/build/File';
 
-const REFRESH_TOKEN = "1//04DaZrTQxk8rgCgYIARAAGAQSNwF-L9Ir0dLoG6wlGuufnL_dnelLEUEOuiCr_zbY3ASBWNofav81mjbYUMxvWtWZ_Kls0UA7ySg";
-const ACCESS_TOKEN = "ya29.a0ARrdaM9yNdP9yvtIn37ta5EJ3SgQgIaz4t8o-u99dBv2ojEINOzA0383RKlkalwUhDSFwKHdEIqyFvwFcL0RX8CiDCAr5v3K0q1CCpgPSY4CQ2np_xQ7lXoJvR3VlhdriXVFOHcDpJh1devbE_6M7I7PaZzu";
-const AUTHORIZATION = "4/0AX4XfWiHC4wQJxVtuwB7GwCSss1oX8ZC2gE3ZlWST2oSN5EBRCFgXrv35816GH1R4MBl8g";
+const REFRESH_TOKEN = "1//04tzS8Hi_zOfUCgYIARAAGAQSNwF-L9Ir_5koRmSPbi7FTU26WQgi3T6vvKwq5_o4uqHOP9gGr9Is05AMwkfZqpiY6vYwOOgsVD4";
+const ACCESS_TOKEN = "ya29.a0AWY7CkkBZ82LCbIWxOOirm1oTCDd7jQ9z1jwUFA75WtW4qnLb-FejObdOyw14FWVXWWwPLMeHQZ4TuoclQztsm5YnJaIjn1SyWiOQYbptijYF52M0g9BA2cyrIYwI_82IMVuVXyEdbeye8-nHhOeLJKF8g5daCgYKAegSARISFQG1tDrpeMjnOp52dZMT7gAnGV3-Jg0163";
+const AUTHORIZATION = "4/0AbUR2VM5xJ2RXvjyYD7ggtLqLArKW3nKiE3SKcC5oWieJoB-WojEr0CyDkHR0lHhbQmIRA";
 const CLIENT_ID = "454551229984-h8j0u4545cr0nof3apcasq9ghrrgn787.apps.googleusercontent.com";
 const CLIENT_SECRET = "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";
 const MY_FIELDS = "id,kind,name,mimeType,parents,webViewLink,webContentLink,modifiedTime,createdTime,size";
@@ -15,7 +15,10 @@ const MY_FIELDS = "id,kind,name,mimeType,parents,webViewLink,webContentLink,modi
 })
 export class GoogleDriveService {
   private tsGoogleDrive = new TsGoogleDrive({
-    oAuthCredentials: { refresh_token: REFRESH_TOKEN },
+    oAuthCredentials: {
+      access_token: ACCESS_TOKEN,
+      refresh_token: REFRESH_TOKEN,
+    },
     oauthClientOptions: {
       clientId: CLIENT_ID,
       clientSecret: CLIENT_SECRET
